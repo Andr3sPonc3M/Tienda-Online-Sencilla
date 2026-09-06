@@ -1,0 +1,7 @@
+# Tienda Online Sencilla — Grupo 17
+# Módulo: Gestión de Carrito de Compras
+# Este proyecto NO requiere dependencias externas — usa solo la biblioteca estándar de Python.
+# Para ejecutar las pruebas:
+#   python -m pytest tests/ -v
+# O directamente:
+#   python -m unittest discover -s tests -v

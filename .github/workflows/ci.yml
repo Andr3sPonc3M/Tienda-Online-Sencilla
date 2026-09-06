@@ -1,0 +1,34 @@
+name: CI — Tienda Online Sencilla
+
+# El pipeline se ejecuta en cada push y pull request a la rama main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descargar el código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configurar Python 3.12
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3. Ejecutar las pruebas automatizadas con unittest
+      #    No se necesita instalar nada: unittest es parte de la biblioteca estándar
+      - name: Run tests
+        run: |
+          python3 -m unittest discover -s tests -v
+
+      # 4. Verificar que todas las pruebas pasaron
+      - name: Verify all tests passed
+        run: |
+          echo "=== Pipeline de CI ejecutado correctamente — todas las pruebas pasaron ==="
